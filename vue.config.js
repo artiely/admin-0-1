@@ -2,7 +2,24 @@ const path = require('path')
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
+
+let outputDir, assetsDir
+if (process.env.VUE_APP_MODE === 'test') {
+  outputDir = 'lib/test'
+  assetsDir = './static'
+} else if (process.env.VUE_APP_MODE === 'stage') {
+  outputDir = 'lib/gary'
+  assetsDir = './static'
+} else if (process.env.VUE_APP_MODE === 'release') {
+  outputDir = 'lib/release'
+  assetsDir = './static'
+}
+
 module.exports = {
+  publicPath: '',
+  outputDir: outputDir,
+  assetsDir: assetsDir,
+  indexPath: 'index.html',
   // https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader
   // 不是这个 https://www.npmjs.com/package/style-resources-loader
   pluginOptions: {
