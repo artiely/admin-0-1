@@ -5,14 +5,30 @@ function resolve(dir) {
 
 let outputDir, assetsDir
 if (process.env.VUE_APP_MODE === 'test') {
-  outputDir = 'lib/test'
+  outputDir = 'dist/test'
   assetsDir = './static'
 } else if (process.env.VUE_APP_MODE === 'stage') {
-  outputDir = 'lib/gary'
+  outputDir = 'dist/gray'
   assetsDir = './static'
 } else if (process.env.VUE_APP_MODE === 'release') {
-  outputDir = 'lib/release'
+  outputDir = 'dist/release'
   assetsDir = './static'
+}
+console.log('process.env.VUE_APP_MODE', process.env.VUE_APP_MODE)
+// 引入插件
+const {
+  skeleton,
+  TerserPlugin,
+  compressionWebpackPlugin,
+  zipPlugin,
+} = require('./webpack.plugin')
+// 按需加载插件
+const pluginsFnc = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return [TerserPlugin, zipPlugin, skeleton, compressionWebpackPlugin]
+  } else {
+    return []
+  }
 }
 
 module.exports = {
@@ -51,5 +67,6 @@ module.exports = {
         '@config': resolve('src/config'),
       },
     },
+    plugins: pluginsFnc(),
   },
 }

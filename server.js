@@ -7,13 +7,16 @@ let staticDir
 let baseUrl
 const argv = process.argv[2]
 if (argv === 'test') {
-  staticDir = '/dist/TestReleased'
+  staticDir = '/dist/test'
   baseUrl = 'http://118.31.222.92:8088'
 } else if (argv === 'stage') {
-  staticDir = '/dist/GrayReleased'
-  baseUrl = 'http://101.37.27.140:12800'
+  staticDir = '/dist/gray'
+  baseUrl = 'https://sp.timing360.com'
 } else if (argv === 'release') {
-  staticDir = '/dist/FormalReleased'
+  staticDir = '/dist/release'
+  baseUrl = 'https://sp.timing360.com'
+} else {
+  staticDir = '/dist'
   baseUrl = 'https://sp.timing360.com'
 }
 
