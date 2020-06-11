@@ -21,15 +21,15 @@ if (argv === 'test') {
 }
 
 app.use(express.static(path.join(__dirname, staticDir)))
-var proxy = require('http-proxy-middleware')
+var { createProxyMiddleware } = require('http-proxy-middleware')
 
 var options = {
   target: baseUrl, // 测试
   changeOrigin: true, // 需要虚拟主机站点
   pathRewrite: {},
 }
-var exampleProxy = proxy(options) // 开启代理功能，并加载配置
-app.use('/', exampleProxy)
+var proxy = createProxyMiddleware(options) // 开启代理功能，并加载配置
+app.use('/', proxy)
 app.listen(8888, err => {
   var uri = `http://${localhost}:8888`
   if (!err) {
