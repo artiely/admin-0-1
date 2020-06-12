@@ -1,7 +1,11 @@
 const path = require('path')
+// https://github.com/lavas-project/vue-skeleton-webpack-plugin
 const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin')
+// https://github.com/webpack-contrib/terser-webpack-plugin
 const TerserPlugin = require('terser-webpack-plugin')
+// https://github.com/webpack-contrib/compression-webpack-plugin
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// https://github.com/erikdesjardins/zip-webpack-plugin
 const ZipPlugin = require('zip-webpack-plugin')
 
 // 骨架插件
