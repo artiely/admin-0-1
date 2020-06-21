@@ -6,6 +6,7 @@ import store from './store'
 import 'ant-design-vue/dist/antd.css'
 import './layout'
 import './packages'
+
 Vue.use(Antd)
 Vue.config.productionTip = false
 

@@ -34,6 +34,14 @@ export default {
       return layout.menuWidth
     },
   },
+  watch: {
+    value: {
+      handler(val) {
+        layout.isCollapse = val
+      },
+      immediate: true,
+    },
+  },
   methods: {
     collapse(collapsed) {
       this.$emit('input', collapsed)

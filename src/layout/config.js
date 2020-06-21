@@ -3,6 +3,8 @@ import Vue from 'vue'
 let config = {
   // 当前选择的布局
   layoutComp: 1,
+  // 菜单是否默认折叠
+  isCollapse: false,
   //  菜单的宽度
   menuWidth: 256,
   //  是否展示菜单trigger

@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-  name: 'Icon',
+  name: 't-icon',
   props: {
     name: {
       type: String,
@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="less">
-@import '//at.alicdn.com/t/font_1859884_w16rarqf4f.css';
+// @import '//at.alicdn.com/t/font_1325474_3w3dvpqub57.css';
 .icon {
   width: 1em;
   height: 1em;
