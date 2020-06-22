@@ -90,7 +90,6 @@
             minHeight: '280px',
           }"
         >
-          Content
         </a-layout-content>
       </a-layout>
     </a-layout>

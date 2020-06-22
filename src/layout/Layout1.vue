@@ -16,6 +16,15 @@
       </a-layout-header>
       <a-layout-content>
         <t-tabhistory></t-tabhistory>
+        <a-input
+          v-charslimit="{
+            maxLength: 30,
+          }"
+          v-model="val"
+          ref="input"
+          @myevent="handle"
+        ></a-input>
+        长 {{ textLength }} {{ leftLength }}
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -26,12 +35,28 @@ export default {
   name: 't-layout1',
   data() {
     return {
+      val: '',
       collapsed: false,
+      textLength: '',
+      leftLength: 0,
     }
   },
   computed: {
     menuWidth() {
       return layout.menuWidth
+    },
+  },
+  watch: {
+    val() {
+      // this.textLength = this.$refs.input.$el.getAttribute('data-text-length')
+      // console.log('123',this.$refs.input.$el.getAttribute('data-text-length'))
+    },
+  },
+  methods: {
+    handle(e) {
+      // console.log("handle -> e", e.textLength)
+      this.textLength = e.textLength
+      this.leftLength = e.leftLength
     },
   },
 }
