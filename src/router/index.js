@@ -27,14 +27,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/demo/page1.vue'),
     meta: { icon: 'icon-shouye' },
-  },
-  // 二级菜单
-  {
-    path: '/page2',
-    name: 'page2',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/demo/page2.vue'),
-    meta: { icon: 'icon-shoubiao' },
+    children: [
+      // 二级菜单
+      {
+        path: '/page2',
+        name: 'page2',
+        component: () =>
+          import(/* webpackChunkName: "about" */ '../views/demo/page2.vue'),
+        meta: { icon: 'icon-shoubiao' },
+      },
+    ],
   },
 ]
 

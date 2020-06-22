@@ -5,7 +5,7 @@
     <a-menu
       :mode="mode"
       :selectedKeys="selectedKeys"
-      :theme="layout.menuTheme"
+      :theme="'dark'"
       :openKeys="openKeys"
       @openChange="onOpenChange"
       @select="select"
@@ -19,13 +19,11 @@
             <template v-if="item.meta && item.meta.icon">
               <t-icon symbol class="menu-icon" :name="item.meta.icon"></t-icon>
             </template>
-            <span v-if="!layout.isCollapse">{{
-              item.meta.title || item.name
-            }}</span>
+            {{ item.meta.title || item.name }}
           </a-menu-item>
-          <menu-sub
+          <t-menu-sub
             v-else
-            :isCollapse="layout.isCollapse"
+            :isCollapse="isCollapse"
             :menu-info="item"
             :key="item.path"
           />
@@ -36,16 +34,12 @@
 </template>
 
 <script>
-import MenuSub from './Menu-sub'
 import { layout } from '../config'
 import { routes } from '@/router'
 console.log('routes', routes)
 let reg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-.,@?^=%&:/~+#]*[\w\-@?^=%&/~+#])?/
 export default {
   name: 't-menu-solo',
-  components: {
-    MenuSub,
-  },
   props: {
     mode: {
       type: String,
@@ -58,7 +52,7 @@ export default {
   },
   data() {
     return {
-      layout,
+      // layout,
       collapsed: false,
       menu: Object.freeze(routes),
       openKeys: [],
@@ -66,8 +60,16 @@ export default {
   },
 
   computed: {
+    isCollapse() {
+      return layout.isCollapse
+    },
     selectedKeys() {
       return [this.$route.path]
+    },
+  },
+  watch: {
+    layout() {
+      alert(1)
     },
   },
   methods: {
