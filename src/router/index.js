@@ -9,7 +9,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: { icon: 'icon-shangchuan' },
+    meta: { icon: 'icon-shangchuan', title: '首页' },
   },
   {
     path: '/about',
@@ -18,6 +18,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
     meta: {
       icon: 'icon-shangchuan',
+      title: '关于',
     },
   },
   // 一级菜单
@@ -26,7 +27,7 @@ const routes = [
     name: 'page1',
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/demo/page1.vue'),
-    meta: { icon: 'icon-shouye' },
+    meta: { icon: 'icon-shouye', title: '一级菜单' },
     children: [
       // 二级菜单
       {
@@ -34,7 +35,7 @@ const routes = [
         name: 'page2',
         component: () =>
           import(/* webpackChunkName: "about" */ '../views/demo/page2.vue'),
-        meta: { icon: 'icon-shoubiao' },
+        meta: { icon: 'icon-shoubiao', title: '二级菜单' },
       },
     ],
   },

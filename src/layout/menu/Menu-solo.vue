@@ -17,16 +17,15 @@
             :key="item.path"
           >
             <template v-if="item.meta && item.meta.icon">
-              <t-icon symbol class="menu-icon" :name="item.meta.icon"></t-icon>
+              <t-icon
+                symbol
+                class="menu-icon anticon"
+                :name="item.meta.icon"
+              ></t-icon>
             </template>
-            {{ item.meta.title || item.name }}
+            <span> {{ item.meta.title || item.name }}</span>
           </a-menu-item>
-          <t-menu-sub
-            v-else
-            :isCollapse="isCollapse"
-            :menu-info="item"
-            :key="item.path"
-          />
+          <t-menu-sub v-else :menu-info="item" :key="item.path" />
         </template>
       </template>
     </a-menu>
@@ -60,16 +59,8 @@ export default {
   },
 
   computed: {
-    isCollapse() {
-      return layout.isCollapse
-    },
     selectedKeys() {
       return [this.$route.path]
-    },
-  },
-  watch: {
-    layout() {
-      alert(1)
     },
   },
   methods: {
@@ -103,26 +94,26 @@ export default {
 </script>
 
 <style lang="less">
-.artiely-menu {
-  .ant-menu-item .anticon,
-  .ant-menu-submenu-title .anticon {
-    opacity: 0.8;
-  }
-}
-.ant-menu-inline-collapsed > .ant-menu-item,
-.ant-menu-inline-collapsed
-  > .ant-menu-item-group
-  > .ant-menu-item-group-list
-  > .ant-menu-item,
-.ant-menu-inline-collapsed
-  > .ant-menu-item-group
-  > .ant-menu-item-group-list
-  > .ant-menu-submenu
-  > .ant-menu-submenu-title,
-.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-  padding: 0 1rem !important;
-}
-.menu-icon {
-  margin: 0 10px;
-}
+// .artiely-menu {
+//   .ant-menu-item .anticon,
+//   .ant-menu-submenu-title .anticon {
+//     opacity: 0.8;
+//   }
+// }
+// .ant-menu-inline-collapsed > .ant-menu-item,
+// .ant-menu-inline-collapsed
+//   > .ant-menu-item-group
+//   > .ant-menu-item-group-list
+//   > .ant-menu-item,
+// .ant-menu-inline-collapsed
+//   > .ant-menu-item-group
+//   > .ant-menu-item-group-list
+//   > .ant-menu-submenu
+//   > .ant-menu-submenu-title,
+// .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+//   padding: 0 1rem !important;
+// }
+// .menu-icon {
+//   margin: 0 10px;
+// }
 </style>
