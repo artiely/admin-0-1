@@ -25,6 +25,8 @@
           @dispatch="handle"
         ></a-input>
         长 {{ textLength }} {{ leftLength }}
+
+        <input-tag v-model="tags" />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -39,6 +41,7 @@ export default {
       collapsed: false,
       textLength: '',
       leftLength: 0,
+      tags: ['123', '456'],
     }
   },
   computed: {
