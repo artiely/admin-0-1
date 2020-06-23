@@ -22,7 +22,7 @@
           }"
           v-model="val"
           ref="input"
-          @myevent="handle"
+          @dispatch="handle"
         ></a-input>
         长 {{ textLength }} {{ leftLength }}
       </a-layout-content>
