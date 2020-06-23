@@ -26,7 +26,9 @@
         ></a-input>
         长 {{ textLength }} {{ leftLength }}
 
-        <input-tag v-model="tags" />
+        <input-tag v-model="tags" class="bg-blue" />
+        <button class="px-4 py-4 bg-blue-900 ad">你好</button>
+        <t-button></t-button>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -65,6 +67,12 @@ export default {
 }
 </script>
 <style>
+.ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;

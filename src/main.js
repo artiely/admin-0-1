@@ -7,6 +7,7 @@ import 'ant-design-vue/dist/antd.css'
 import './layout'
 import './packages'
 import './common/directive'
+import './assets/style/index.less'
 Vue.use(Antd)
 Vue.config.productionTip = false
 
