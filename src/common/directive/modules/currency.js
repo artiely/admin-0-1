@@ -1,11 +1,6 @@
-function event(name, arg) {
+function event(name) {
   var evt = document.createEvent('Event')
   evt.initEvent(name, true, true)
-  if (name === 'dispatch' && arg) {
-    let { textLength, leftLength } = arg
-    evt.textLength = textLength
-    evt.leftLength = leftLength
-  }
   return evt
 }
 // 金额输入保留两位小数 返回字符串
