@@ -49,19 +49,18 @@ export default function fetch(options, argu) {
         if (options.createJson) {
           return data
         } else {
-          let { token, sp_id } = store.getters
-          if (!options.ignoreLogin) {
-            if (!token || !sp_id) {
-              store.dispatch('user/logout')
-            }
-            let userInfo = {}
-            userInfo['sp_id'] = sp_id
-            userInfo['token'] = token
-            data = { ...userInfo, ...data }
-          }
-          data = sign({ token, sp_id, data })
-          return Qs.stringify(data, { arrayFormat: 'repeat' })
+          // let { token, sp_id } = store.getters
+          // if (!options.ignoreLogin) {
+          //   if (!token || !sp_id) {
+          //     store.dispatch('user/logout')
+          //   }
+          //   let userInfo = {}
+          //   userInfo['sp_id'] = sp_id
+          //   userInfo['token'] = token
+          //   data = { ...userInfo, ...data }
         }
+        // data = sign({ token, sp_id, data })
+        return Qs.stringify(data, { arrayFormat: 'repeat' })
       },
     ],
     // `transformResponse` 在传递给 then/catch 前，允许修改响应数据
@@ -173,8 +172,8 @@ export default function fetch(options, argu) {
         const responseCode = res.data.error_code
         switch (responseCode) {
           case 100011:
-            sessionStorage.clear()
-            store.dispatch('user/logout')
+            // sessionStorage.clear()
+            // store.dispatch('user/logout')
             break
           default:
         }
