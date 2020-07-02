@@ -11,4 +11,7 @@ if (process.env.VUE_APP_MODE === 'dev') {
   // 正式环境
 }
 
-export {}
+export default {
+  // 设置是否打开
+  setting: false,
+}

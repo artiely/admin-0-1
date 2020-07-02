@@ -1,6 +1,7 @@
 <template>
   <a-layout-content>
-    <t-tabhistory v-if="layout.tabHistory"></t-tabhistory>
+    <!-- <t-tabhistory v-if="layout.tabHistory"></t-tabhistory> -->
+    <router-view></router-view>
   </a-layout-content>
 </template>
 

@@ -22,7 +22,6 @@
             &times;
           </button>
         </span>
-
         <input
           class="tags-input-text"
           placeholder="Add tag..."
