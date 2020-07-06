@@ -16,7 +16,9 @@
       </a-layout-header>
       <!-- <a-layout-content>
       </a-layout-content> -->
-      <t-content></t-content>
+      <t-content>
+        <slot></slot>
+      </t-content>
     </a-layout>
   </a-layout>
 </template>

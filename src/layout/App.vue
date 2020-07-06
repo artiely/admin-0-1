@@ -1,19 +1,21 @@
 <template>
   <a-config-provider :locale="locale">
     <div id="app">
-      <t-home></t-home>
-      <t-setting v-if="setting"></t-setting>
+      <!-- <t-home></t-home> -->
+      <router-view></router-view>
+      <!-- <t-setting v-if="setting"></t-setting> -->
     </div>
   </a-config-provider>
 </template>
 <script>
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
-import { setting } from '@config'
+import config from '@config'
 export default {
+  name: 'app',
   data() {
     return {
       locale: zhCN,
-      setting,
+      setting: config.setting,
     }
   },
 }

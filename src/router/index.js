@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@layout/Home.vue'
+import App from '@layout/App.vue'
 
 Vue.use(VueRouter)
 
@@ -23,10 +24,20 @@ const routes = [
   },
   // 一级菜单
   {
+    path: '/page3',
+    name: 'Page3',
+    component: () =>
+      import(/* webpackChunkName: "about" */ '../views/demo/page3.vue'),
+    meta: {
+      icon: 'icon-shangchuan',
+      title: '一级菜单',
+    },
+  },
+  // 一级菜单
+  {
     path: '/page1',
     name: 'page1',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/demo/page1.vue'),
+    component: Home,
     meta: { icon: 'icon-shouye', title: '一级菜单' },
     children: [
       // 二级菜单

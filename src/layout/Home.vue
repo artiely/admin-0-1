@@ -1,5 +1,7 @@
 <template>
-  <component :is="layoutComp" />
+  <component :is="layoutComp">
+    <slot><router-view></router-view></slot>
+  </component>
 </template>
 
 <script>
