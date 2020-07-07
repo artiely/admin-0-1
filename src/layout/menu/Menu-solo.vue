@@ -54,13 +54,16 @@ export default {
       // layout,
       collapsed: false,
       menu: Object.freeze(routes),
-      openKeys: [],
+      // openKeys: layout.openKeys,
     }
   },
 
   computed: {
     selectedKeys() {
       return [this.$route.path]
+    },
+    openKeys() {
+      return layout.openKeys
     },
   },
   methods: {
@@ -81,9 +84,11 @@ export default {
       }
       let index = this.menu.findIndex(findIndex)
       if (index === -1) {
-        this.openKeys = openKeys
+        // this.openKeys = openKeys
+        layout.openKeys = openKeys
       } else {
-        this.openKeys = latestOpenKey ? [latestOpenKey] : []
+        // this.openKeys = latestOpenKey ? [latestOpenKey] : []
+        layout.openKeys = latestOpenKey ? [latestOpenKey] : []
       }
     },
   },

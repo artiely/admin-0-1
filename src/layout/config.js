@@ -10,6 +10,8 @@ let config = {
   //  是否展示菜单trigger
   showTrigger: true,
   tabHistory: true,
+  // 当前展开的菜单 一般不修改(主要是为了维持菜单的展开状态，不会在Home和App切换时出现菜单一二级折叠坍塌错误)
+  openKeys: [],
 }
 
 export const layout = Vue.observable(config)
