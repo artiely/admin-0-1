@@ -25,7 +25,7 @@ exports.TerserPlugin = new TerserPlugin({
     warnings: false,
     compress: {
       drop_debugger: true,
-      drop_console: true,
+      drop_console: false,
     },
   },
   sourceMap: false,
@@ -39,7 +39,7 @@ exports.compressionWebpackPlugin = new CompressionWebpackPlugin({
   threshold: 10240,
   minRatio: 0.8,
 })
-// 对打包文件进行压缩
+// 对打包文件进行压缩 只在单独使用打包命令时准确
 exports.zipPlugin = new ZipPlugin({
   path: path.join(__dirname, 'dist'),
   filename: 'dist.zip',

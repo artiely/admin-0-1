@@ -8,6 +8,7 @@ import './layout'
 import './packages'
 import './common/directive'
 import './assets/style/index.less'
+import './config/log'
 Vue.use(Antd)
 Vue.config.productionTip = false
 
