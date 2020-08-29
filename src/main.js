@@ -11,7 +11,7 @@ import './assets/style/index.less'
 import './config/log'
 Vue.use(Antd)
 Vue.config.productionTip = false
-
+Vue.config.performance = process.env.NODE_ENV !== 'production'
 new Vue({
   router,
   store,
